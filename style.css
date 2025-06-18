@@ -1,0 +1,87 @@
+body {
+    margin: 0;
+    background: transparent;
+    font-family: "Passion One";
+  }
+  
+  #stat-widget {
+    text-align: left;
+    color: black;
+    /* text-shadow: 2px 2px black; */
+    font-size: 2em;
+    padding: 20px;
+    overflow: hidden;
+    width: 30%;
+  }
+
+  #stat-header {
+    font-weight: 700;
+    font-size: 28px;
+  }
+
+  #stat-value {
+    font-weight: 400;
+    font-size: 24px;
+  }
+  
+  #stat-header,
+  #stat-value {
+    display: block;
+    white-space: nowrap;
+    opacity: 0;
+    transform: translateX(20%);
+  }
+  
+  .slide-in {
+    animation: slideInLeft 1s ease forwards;
+  }
+
+  .slide-in-delayed {
+    animation: slideInLeft 1s ease forwards;
+    animation-delay: 0.2s;
+  }
+  
+  .slide-out {
+    animation: slideOutLeft 1s ease forwards;
+  }
+  
+  @keyframes slideInLeft {
+    0% {
+      opacity: 0;
+      transform: translateX(20%);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0%);
+    }
+  }
+  
+  @keyframes slideOutLeft {
+    0% {
+      opacity: 1;
+      transform: translateX(0%);
+    }
+    100% {
+      opacity: 0;
+      transform: translateX(-100%);
+    }
+  }
+
+  .passion-one-regular {
+    font-family: "Passion One", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+  .passion-one-bold {
+    font-family: "Passion One", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+  }
+  
+  .passion-one-black {
+    font-family: "Passion One", sans-serif;
+    font-weight: 900;
+    font-style: normal;
+  }
+  
