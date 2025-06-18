@@ -1,16 +1,36 @@
+/* 
+AUTHOR: MRJORDILICIOUS
+URL:    HTTPS://MRJORDILICIOUS.COM
+TWITCH: HTTPS://TWITCH.TV/MRJORDILICIOUS
+KOFI:   HTTPS://KO-FI.COM/MRJORDILICIOUS
+LINKS:  HTTPS://LINKS.MRJORDILICIOUS.COM 
+*/
+
 ////////////////
 // PARAMETERS //
 ////////////////
 
+const containerEl = document.getElementById('stat-widget');
 const headerEl = document.getElementById('stat-header');
 const valueEl = document.getElementById('stat-value');
 
 const urlParams = new URLSearchParams(window.location.search);
 const username = urlParams.get("username") || ""; // fallback if not provided
+const fontColor = urlParams.get("color") || "#FFFFFF"; // set font color, default is white
 
 //////////
 // CODE //
 //////////
+
+// Set CSS font color based on URL parameter
+  function normalizeColor(color) {
+    const hexPattern = /^[0-9a-f]{6}$/i;
+      return hexPattern.test(color) ? `#${color}` : color;
+  }
+
+  const color = normalizeColor(fontColor);
+
+containerEl.style.color = `${color}`; 
 
 // Fallback values to display while loading/fetching
 let currentStats = {
@@ -138,5 +158,5 @@ function showNextStat() {
 
 // Initial load
 fetchStats();
-setInterval(fetchStats, 30000); // Update every 60s
+setInterval(fetchStats, 30000); // Update every 30s
 showNextStat();

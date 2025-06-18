@@ -6,8 +6,7 @@ body {
   
   #stat-widget {
     text-align: left;
-    color: black;
-    /* text-shadow: 2px 2px black; */
+    text-shadow: 2px 2px rgba(0, 0, 0, 0.69);
     font-size: 2em;
     padding: 20px;
     overflow: hidden;
@@ -16,12 +15,12 @@ body {
 
   #stat-header {
     font-weight: 700;
-    font-size: 28px;
+    font-size: 26px;
   }
 
   #stat-value {
     font-weight: 400;
-    font-size: 24px;
+    font-size: 22px;
   }
   
   #stat-header,
