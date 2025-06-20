@@ -110,7 +110,7 @@ input[type="text"], select {
 }
 
 #copyMsg {
-  color: #E5007E;
+  color: greenyellow;
   font-weight: bold;
   margin-left: 10px;
   display: none;
@@ -163,4 +163,12 @@ iframe {
 
 .kofi-button:hover {
   filter: brightness(0.9);
+}
+
+.divider {
+  border: none;
+  height: 1px;
+  background: linear-gradient(to right, #222 0%, #444 50%, #222 100%);
+  margin: 20px 0;
+  opacity: 0.5;
 }
