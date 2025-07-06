@@ -116,7 +116,7 @@ const stats = [
   },
   {
     header: "NOW PLAYING",
-    getValue: () => (game_truncate(currentStats.game,16))
+    getValue: () => (game_truncate(currentStats.game,20))
   }
 ];
 
