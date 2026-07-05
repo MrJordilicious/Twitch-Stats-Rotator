@@ -187,4 +187,4 @@ function showNextStat() {
 // Initial load
 fetchStats();
 setInterval(fetchStats, 30000); // Update every 30s
-showNextStat();
+showNextStat(); 
