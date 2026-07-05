@@ -10,6 +10,8 @@ const BASE_URL = "https://widgets.mrjordilicious.com/Twitch-Stats-Rotator"; // R
 
 const param1El = document.getElementById("param1");
 const param2El = document.getElementById("param2");
+const param3El = document.getElementById("param3");
+const param4El = document.getElementById("param4");
 const resultEl = document.getElementById("result");
 const copyBtn = document.getElementById("copyBtn");
 const copyMsg = document.getElementById("copyMsg");
@@ -20,6 +22,8 @@ function updateURL() {
 window.addEventListener("load", () => {
   param1El.value = "";
   param2El.value = "";
+  param3El.value = "";
+  param4El.value = "";
   updateURL(); // trigger update for iframe + URL
 });
   
@@ -31,6 +35,12 @@ window.addEventListener("load", () => {
   if (param2El.value.trim()) {
     params.push("color=" + encodeURIComponent(param2El.value.trim()));
   }
+  if (param3El.value.trim()) {
+    params.push("font=" + encodeURIComponent(param3El.value.trim()));
+  }
+  if (param4El.value.trim()) {
+    params.push("direction=" + encodeURIComponent(param4El.value.trim()));
+  }
 
   const fullURL = BASE_URL + (params.length ? "?" + params.join("&") : "");
 
@@ -39,7 +49,7 @@ window.addEventListener("load", () => {
 }
 
 // Update on load and whenever any input changes
-[param1El, param2El].forEach(el => {
+[param1El, param2El, param3El, param4El].forEach(el => {
   el.addEventListener("input", updateURL);
 });
 

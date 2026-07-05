@@ -16,11 +16,29 @@ const valueEl = document.getElementById('stat-value');
 
 const urlParams = new URLSearchParams(window.location.search);
 const username = urlParams.get("username") || ""; // fallback if not provided
+const fontName = params.get("font") || "Passion One"; // Default to Passion One if not specified
 const fontColor = urlParams.get("color") || "#FFFFFF"; // set font color, default is white
+const textAlign = urlParams.get("direction") || "left"; // set alignment, default is left
 
 //////////
 // CODE //
 //////////
+
+// CSS variable font-family
+document.documentElement.style.setProperty(
+    "--font-family",
+    `"${fontName}"`
+);
+
+// Google Fonts loader
+const link = document.createElement("link");
+link.rel = "stylesheet";
+link.href =
+    "https://fonts.googleapis.com/css2?family=" +
+    encodeURIComponent(fontName).replace(/%20/g, "+") +
+    "&display=swap";
+
+document.head.appendChild(link);
 
 // Set CSS font color based on URL parameter
   function normalizeColor(color) {
@@ -31,6 +49,12 @@ const fontColor = urlParams.get("color") || "#FFFFFF"; // set font color, defaul
   const color = normalizeColor(fontColor);
 
 containerEl.style.color = `${color}`; 
+
+// CSS variable text-align
+document.documentElement.style.setProperty(
+    "--text-align",
+    textAlign
+);
 
 // Fallback values to display while loading/fetching
 let currentStats = {

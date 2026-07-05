@@ -3,11 +3,11 @@ body {
     width: 100%;
     height: 100%;
     background: transparent;
-    font-family: "Passion One";
+    font-family: var(--font-family, "Passion One");
   }
   
   #stat-widget {
-    text-align: left;
+    text-align: var(--text-align, left);
     text-shadow: 2px 2px rgba(0, 0, 0, 0.69);
     font-size: 2em;
     padding: 20px;
