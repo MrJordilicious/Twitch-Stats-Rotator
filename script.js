@@ -17,7 +17,7 @@ const valueEl = document.getElementById('stat-value');
 const urlParams = new URLSearchParams(window.location.search);
 const username = urlParams.get("username") || ""; // fallback if not provided
 const fontName = params.get("font") || "Passion One"; // Default to Passion One if not specified
-const fontColor = urlParams.get("color") || "#FFFFFF"; // set font color, default is white
+const fontColor = urlParams.get("color") || "FFFFFF"; // set font color, default is white
 const textAlign = urlParams.get("direction") || "left"; // set alignment, default is left
 
 //////////
@@ -40,15 +40,19 @@ link.href =
 
 document.head.appendChild(link);
 
-// Set CSS font color based on URL parameter
-  function normalizeColor(color) {
-    const hexPattern = /^[0-9a-f]{6}$/i;
-      return hexPattern.test(color) ? `#${color}` : color;
+// Color hex selector
+let cssColor = fontColor.replace(/^%23|^#/, "");
+
+  // If it's 3 or 6 hex digits, prepend #
+  if (/^[0-9A-Fa-f]{3}$/.test(cssColor) || /^[0-9A-Fa-f]{6}$/.test(cssColor)) {
+      cssColor = "#" + cssColor;
   }
 
-  const color = normalizeColor(fontColor);
-
-containerEl.style.color = `${color}`; 
+// CSS variable font-color
+document.documentElement.style.setProperty(
+    "--color",
+    cssColor
+);
 
 // CSS variable text-align
 document.documentElement.style.setProperty(
