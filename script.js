@@ -16,7 +16,7 @@ const valueEl = document.getElementById('stat-value');
 
 const urlParams = new URLSearchParams(window.location.search);
 const username = urlParams.get("username") || ""; // fallback if not provided
-const fontName = params.get("font") || "Passion One"; // Default to Passion One if not specified
+const fontName = urlParams.get("font") || "Passion One"; // Default to Passion One if not specified
 const fontColor = urlParams.get("color") || "FFFFFF"; // set font color, default is white
 const textAlign = urlParams.get("direction") || "left"; // set alignment, default is left
 
